@@ -15,10 +15,33 @@ struct ContentView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             VStack {
-                Text(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/)
+                Image("diceeLogo")
+                HStack {
+                    DiceView(n: 1)
+                    DiceView(n: 4)
+                }
+                .padding(.horizontal)
+                Button(action: {}) {
+                    Text("Roll")
+                        .font(.system(size: 50))
+                        .fontWeight(.heavy)
+                        .foregroundColor(.white)
+                        .padding(.horizontal)
+                }
+                .background(.red)
             }
         }
+    }
+}
+
+struct DiceView: View {
+    var n: Int
+    
+    var body: some View {
         
+        Image("dice\(n)")
+            .resizable()
+            .aspectRatio(1, contentMode: .fit)
     }
 }
 
